@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import io.github.charlesanjos.listatarefas.R;
-public class HomeFragment extends Fragment {
+public class AfazeresFragment extends Fragment {
 
-    public HomeFragment() {
+    public AfazeresFragment() {
         // Required empty public constructor
     }
 
@@ -19,7 +19,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment (converte fragment-home em view para exibir ao usuário)
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_afazeres, container, false);
 
     }
 }

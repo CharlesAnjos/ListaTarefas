@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.Button;
 
 import io.github.charlesanjos.listatarefas.R;
-import io.github.charlesanjos.listatarefas.fragments.HomeFragment;
-import io.github.charlesanjos.listatarefas.fragments.SobreFragment;
+import io.github.charlesanjos.listatarefas.fragments.AfazeresFragment;
+import io.github.charlesanjos.listatarefas.fragments.CompletosFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button buttonHome,buttonSobre;
-    HomeFragment homeFragment;
-    SobreFragment sobreFragment;
+    Button buttonAfazeres,buttonCompletos;
+    AfazeresFragment afazeresFragment;
+    CompletosFragment completosFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,29 +25,29 @@ public class MainActivity extends AppCompatActivity {
         //retirar sombra da ActionBar entre botões do fragments
         getSupportActionBar().setElevation(0);
 
-        buttonHome = findViewById(R.id.buttonHome);
-        buttonSobre = findViewById(R.id.buttonSobre);
-        homeFragment = new HomeFragment();
-        sobreFragment = new SobreFragment();
+        buttonAfazeres = findViewById(R.id.buttonAfazeres);
+        buttonCompletos = findViewById(R.id.buttonCompletos);
+        afazeresFragment = new AfazeresFragment();
+        completosFragment = new CompletosFragment();
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameExemplo,homeFragment);
+        transaction.replace(R.id.frameExemplo,afazeresFragment);
         transaction.commit();
 
-        buttonHome.setOnClickListener(new View.OnClickListener() {
+        buttonAfazeres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameExemplo,homeFragment);
+                transaction.replace(R.id.frameExemplo,afazeresFragment);
                 transaction.commit();
             }
         });
 
-        buttonSobre.setOnClickListener(new View.OnClickListener() {
+        buttonCompletos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.frameExemplo,sobreFragment);
+                transaction.replace(R.id.frameExemplo,completosFragment);
                 transaction.commit();
             }
         });

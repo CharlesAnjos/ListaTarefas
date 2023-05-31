@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AfazeresFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/botaoCasa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:height="200dp"
+            android:text="Casa"
+            app:icon="@drawable/home"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="100dp"
+            app:layout_constraintBottom_toTopOf="@+id/botaoEstudos"
+            app:layout_constraintEnd_toStartOf="@+id/botaoTrabalho"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botaoTrabalho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:height="200dp"
+            android:text="Trabalho"
+            app:icon="@drawable/work"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/botaoCasa"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/botaoEstudos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:height="200dp"
+            android:text="Estudos"
+            app:icon="@drawable/import_contacts"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="100dp"
+            app:layout_constraintEnd_toStartOf="@+id/botaoFavoritos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/botaoCasa" />
+
+        <Button
+            android:id="@+id/botaoFavoritos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:height="200dp"
+            android:text="Favoritos"
+            app:icon="@drawable/star"
+            app:iconGravity="textTop"
+            app:iconPadding="8dp"
+            app:iconSize="100dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/botaoEstudos"
+            app:layout_constraintTop_toBottomOf="@+id/botaoTrabalho" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+

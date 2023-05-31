@@ -14,20 +14,20 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <Button
-        android:id="@+id/buttonHome"
+        android:id="@+id/buttonAfazeres"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary"
-        android:text="Home"
+        android:text="Afazeres"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonSobre"
+        android:id="@+id/buttonCompletos"
         android:layout_width="206dp"
         android:layout_height="wrap_content"
         android:background="@color/design_default_color_primary"
-        android:text="Sobre"
+        android:text="Completos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
