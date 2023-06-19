@@ -26,6 +26,12 @@ public class Afazer implements Serializable {
         this.dataCompleto = dataCompleto;
     }
 
+    public Afazer(String titulo, LocalDateTime dataCriado, Categoria categoria) {
+        this.titulo = titulo;
+        this.dataCriado = dataCriado;
+        this.categoria = categoria;
+    }
+
     public int getId() {
         return id;
     }
@@ -80,5 +86,9 @@ public class Afazer implements Serializable {
 
     public void setDataCompleto(LocalDateTime dataCompleto) {
         this.dataCompleto = dataCompleto;
+    }
+
+    public String toString(){
+        return this.getTitulo();
     }
 }

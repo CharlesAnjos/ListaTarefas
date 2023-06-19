@@ -10,6 +10,7 @@ import android.os.Build;
 
 import androidx.annotation.Nullable;
 
+import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,13 +74,17 @@ public class BDsqlite extends SQLiteOpenHelper {
         values.put("CATEGORIA", afazer.getCategoria().toString());
         values.put("ISFAVORITO", afazer.isFavorito());
         values.put("ISCOMPLETO", afazer.isCompleto());
-        values.put("DATACOMPLETO", afazer.getDataCompleto().toString());
+        if(afazer.isCompleto()){
+            values.put("DATACOMPLETO", afazer.getDataCompleto().toString());
+        }else{
+            values.put("DATACOMPLETO", "");
+        }
         db.insert("AFAZER",null,values);
 
     }
 
     @SuppressLint("Range")
-    public List<Afazer> consultarDados(){
+    public List<Afazer> consultarDados(Categoria categoria){
         SQLiteDatabase dbselec = getReadableDatabase();
 
         String[] colunas = {
@@ -91,10 +96,21 @@ public class BDsqlite extends SQLiteOpenHelper {
                 "ISCOMPLETO",
                 "DATACOMPLETO"
         };
+
+        String where = null;
+        String[] dadosWhere = null;
+
+
+        if(categoria != null){
+            where = "CATEGORIA = '" + categoria.name() + "'";
+        } else {
+            where = "ISFAVORITO = 1";
+        }
+
         Cursor cursor = dbselec.query(
-                "AFAZER",   // The table to query
-                colunas,       // The array of columns to return (pass null to get all)
-                null,          // The columns for the WHERE clause
+                "AFAZER",  // The table to query
+                colunas,        // The array of columns to return (pass null to get all)
+                where,    // The columns for the WHERE clause
                 null,          // The values for the WHERE clause
                 null,          // don't group the rows
                 null,          // don't filter by row groups
@@ -114,8 +130,12 @@ public class BDsqlite extends SQLiteOpenHelper {
             a.setFavorito(Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex("ISFAVORITO"))));
             a.setCompleto(Boolean.parseBoolean(cursor.getString(cursor.getColumnIndex("ISCOMPLETO"))));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                a.setDataCriado(LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(
-                        "DATACOMPLETO"))));
+                if(a.isCompleto()){
+                    a.setDataCompleto(LocalDateTime.parse(cursor.getString(cursor.getColumnIndex(
+                            "DATACOMPLETO"))));
+                } else {
+                    a.setDataCompleto(null);
+                }
             }
             afazeres.add(a);
         }
